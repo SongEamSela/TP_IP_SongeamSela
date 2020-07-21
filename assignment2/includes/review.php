@@ -41,7 +41,7 @@
     <fieldset><legend>Write your review here</legend>
         <textarea name="review" id="review" cols="100" rows="10"></textarea>
     </fieldset><br>
-    <div style="margin-left: 935px;">
+    <div style="margin-left: 500px;">
         <button type="submit" style="background-color: green; color: white; box-shadow: 4px 4px black;"><i class="fas fa-reply"></i>Send</button>
         <button type="submit" style="background-color: rgb(253, 36, 36); color: white; box-shadow: 4px 4px black;"><i class="fas fa-times"></i>Discard</button> <br>
     </div>

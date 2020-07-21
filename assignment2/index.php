@@ -18,13 +18,13 @@
     <iframe src="includes/nav_bar.php" frameborder="0" style="width: 100%"></iframe>
     <iframe src="includes/feature.php" frameborder="0" style="width: 100%; height: 700px;"></iframe>
     <iframe src="includes/promotion.php" frameborder="0" style="width: 100%; height: 200px"></iframe>
-    <div class="div_row" style="height: 700px">
-        <iframe src="includes/category.php" frameborder="0" style="width: 500px; height: 400px;"></iframe>
-        <!-- <iframe src="includes/products.php" frameborder="0" style="width: 800px; height: 800px"></iframe> --> 
-        <div>
+    <div class="div_row" style="height: 700px;">
+        <iframe src="includes/category.php" frameborder="0" style="width: 350px; height: 400px;"></iframe>
+        <iframe src="product.php" frameborder="0" style="width: 800px; height: 800px"></iframe> 
+        <!-- <div>
             <iframe src="includes/product_detail.php" frameborder="0" style="width: 800px; height: 500px"></iframe>
-            <iframe src="includes/review.php" frameborder="0" style="width: 800px; height: 800px"></iframe>
-        </div>
+            <iframe src="includes/review.php" frameborder="0" style="width: 1000px; height: 800px"></iframe>
+        </div> -->
     </div>
     
 </body>
