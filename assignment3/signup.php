@@ -18,7 +18,7 @@ if (! empty($_POST["register-user"])) {
         if ($memberCount == 0) {
             $insertId = $member->insertMemberRecord($username, $email, $password);
             if (! empty($insertId)) {
-                header("Location: login.php");
+                header("Location: ../assignment1/index.php");
             }
         } else {
             $errorMessage[] = "User already exists.";
@@ -55,7 +55,7 @@ if (! empty($_POST["register-user"])) {
 <body>
 <iframe src="../assignment2/includes/nav_bar.php" frameborder="0" style="width: 100%;"></iframe>
 
-<form action="sign up">
+<form name="frmRegistration" method="post" action="">
  <div>
      <h1 style=" color: green;"><b>Sign Up</b></h1>
      <p>By signing up, you agree to Awesome Shop's Term & Conditions</p>
