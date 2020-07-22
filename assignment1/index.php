@@ -157,12 +157,12 @@
                     <?php
                         $count=0;
                     
-                        $conn = new mysqli("localhost","root","root","tp_php");
+                        $conn = new mysqli("sql12.freemysqlhosting.net","sql12356391","GcFs2qARDl","sql12356391");
                         if($conn->connect_error) {
                             die("Connection failed: ". $conn->connect_error);
                         }
 
-                        $sql = "SELECT * FROM features LIMIT 8";
+                        $sql = "SELECT resource_path,discount,description,price FROM assets JOIN products WHERE assets.product_id = products.id  LIMIT 8";
                         $result = $conn->query($sql);
 
                         if($result->num_rows > 0){
