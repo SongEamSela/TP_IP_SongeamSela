@@ -76,19 +76,58 @@
 
 <body>
     <iframe src="../assignment2/includes/nav_bar.php" frameborder="0" style="width: 100%;"></iframe>
+
+    <?php 
+        if(isset($_SESSION["errorMessage"])) {
+        ?>
+        <div class="error-message"><?php  echo $_SESSION["errorMessage"]; ?></div>
+        <?php 
+        unset($_SESSION["errorMessage"]);
+        } 
+    ?>
+
     <div class="item-center full-height jutify-center">
-        <form action="">
+        <form class="login-form" name="login-form" method="POST" action="login-action.php" onSubmit="return validate();">
             <div class="floatl border-contain q-col">
                 <h3 class="jutify-center">Welcome Back</h3>
                 <span class="jutify-center">Login with your email & password</span>
-                <div style="margin: 10px; "><input type="email" name="" id="" placeholder="email" style="width: 10cm;"></div>
-                <div style="margin: 10px;"><input type="password" name="" id="" placeholder="password" style="width: 10cm;"></div>
-                <div><button style="margin: 10px;background-color: #f28482; color:white;width:10cm">Continue</button></div>
+
+                <div style="margin: 10px; ">
+                <input type="email" name="email" id="email" placeholder="email" style="width: 10cm;" required></div>
+                <div class=usererr><?php if (! empty($username_error)) { echo $username_error; } ?></div>
+                <div style="margin: 10px;">
+
+                <input type="password" name="password" id="password" placeholder="password" style="width: 10cm;" required></div>
+                <div class=pwderr><?php if (! empty($password_error)) { echo $password_error; } ?></div>
+
+                <div><button type="submit" id="btnsubmit" name="submit" value="Login" style="margin: 10px;background-color: #f28482; color:white;width:10cm">Continue</button></div>
                 <div class="jutify-center">Don't have any account? <span><a href="signup.php">Sign Up</a></span></div>
 
             </div>
         </form>
     </div>
+
+    <script>
+    function validate() {
+        var $valid = true;
+        document.getElementById("email").innerHTML = "";
+        document.getElementById("password").innerHTML = "";
+        
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if(email == "") 
+        {
+            document.getElementById("email").innerHTML = "required";
+        	$valid = false;
+        }
+        if(password == "") 
+        {
+        	document.getElementById("password").innerHTML = "required";
+            $valid = false;
+        }
+        return $valid;
+    }
+    </script>
 
 
 

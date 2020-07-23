@@ -1,3 +1,21 @@
+<?php
+namespace Phppot;
+
+use \Phppot\Member;
+
+if (! empty($_SESSION["userId"])) {
+    require_once __DIR__ . '../assignment3/Member.php';
+    $member = new Member();
+    $memberResult = $member->getMemberById($_SESSION["userId"]);
+    if(!empty($memberResult[0]["name"])) {
+        $displayName = ucwords($memberResult[0]["name"]);
+    }
+    // } else {
+    //     $displayName = $memberResult[0]["user_name"];
+    // }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +33,16 @@
 <body>
 
 <!-- Header section -->
+
+<iframe src="includes/nav_bar.php" frameborder="0" style="width: 100%"></iframe>
+
+<div>
+        <div class="dashboard">
+            <div class="member-dashboard">Welcome <b><?php echo $displayName; ?></b>, You have successfully logged in!<br>
+                Click to <a href="../assignment3/logout.php" class="logout-button">Logout</a>
+            </div>
+        </div>
+    </div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

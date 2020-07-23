@@ -3,7 +3,7 @@ namespace Phppot;
 
 use \Phppot\DataSource;
 
-class Register
+class Member
 {
 
     private $dbConn;
@@ -74,5 +74,27 @@ class Register
         );
         $insertId = $this->ds->insert($query, $paramType, $paramArray);
         return $insertId;
+    }
+
+    function getMemberById($memberId)
+    {
+        $query = "select * FROM users WHERE id = ?";
+        $paramType = "i";
+        $paramArray = array($memberId);
+        $memberResult = $this->ds->select($query, $paramType, $paramArray);
+        
+        return $memberResult;
+    }
+    
+    public function processLogin($username, $password) {
+        $passwordHash = md5($password);
+        $query = "select * FROM users WHERE name = ? AND password = ?";
+        $paramType = "ss";
+        $paramArray = array($username, $passwordHash);
+        $memberResult = $this->ds->select($query, $paramType, $paramArray);
+        if(!empty($memberResult)) {
+            $_SESSION["userId"] = $memberResult[0]["id"];
+            return true;
+        }
     }
 }

@@ -1,15 +1,15 @@
 <?php
 namespace Phppot;
 
-use \Phppot\Register;
+use \Phppot\Member;
 if (! empty($_POST["register-user"])) {
     
     $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
     $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST["email"], FILTER_SANITIZE_STRING);
-    require_once ("Register.php");
+    require_once ("Member.php");
     /* Form Required Field Validation */
-    $member = new Register();
+    $member = new Member();
     $errorMessage = $member->validateMember($username, $email, $password);
     
     if (empty($errorMessage)) {
