@@ -86,11 +86,11 @@ class Member
         return $memberResult;
     }
     
-    public function processLogin($username, $password) {
+    public function processLogin($email, $password) {
         $passwordHash = md5($password);
-        $query = "select * FROM users WHERE name = ? AND password = ?";
+        $query = "select * FROM users WHERE email = ? AND password = ?";
         $paramType = "ss";
-        $paramArray = array($username, $passwordHash);
+        $paramArray = array($email, $passwordHash);
         $memberResult = $this->ds->select($query, $paramType, $paramArray);
         if(!empty($memberResult)) {
             $_SESSION["userId"] = $memberResult[0]["id"];

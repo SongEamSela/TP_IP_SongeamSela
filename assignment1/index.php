@@ -34,7 +34,7 @@ if (! empty($_SESSION["userId"])) {
 
 <!-- Header section -->
 
-<iframe src="includes/nav_bar.php" frameborder="0" style="width: 100%"></iframe>
+<iframe src="../assignment2/includes/nav_bar.php" frameborder="0" style="width: 100%"></iframe>
 
 <div>
         <div class="dashboard">

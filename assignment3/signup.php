@@ -93,7 +93,7 @@ if (! empty($_POST["register-user"])) {
         </div>
      <br>
      <br>
-     <p>Already have an account?<a href="" style=" color: green;">Sign In</a><br></p>
+     <p>Already have an account?<a href="login.php" style=" color: green;">Sign In</a><br></p>
  </div>
     </form>
 

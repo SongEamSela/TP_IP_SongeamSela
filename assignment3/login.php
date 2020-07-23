@@ -69,6 +69,10 @@
             display: flex;
             flex-direction: column;
         }
+        .error-info {
+            color: #FF0000;
+            margin-left: 10px;
+        }
     </style>
 
 
@@ -93,10 +97,16 @@
                 <span class="jutify-center">Login with your email & password</span>
 
                 <div style="margin: 10px; ">
+                <div>
+                        <label for="username">Username</label><span id="user_info" class="error-info"></span>
+                </div>
                 <input type="email" name="email" id="email" placeholder="email" style="width: 10cm;" required></div>
                 <div class=usererr><?php if (! empty($username_error)) { echo $username_error; } ?></div>
                 <div style="margin: 10px;">
 
+                <div>
+                        <label for="password">Password</label><span id="password_info" class="error-info"></span>
+                </div>
                 <input type="password" name="password" id="password" placeholder="password" style="width: 10cm;" required></div>
                 <div class=pwderr><?php if (! empty($password_error)) { echo $password_error; } ?></div>
 
@@ -107,7 +117,7 @@
         </form>
     </div>
 
-    <script>
+    <!-- <script>
     function validate() {
         var $valid = true;
         document.getElementById("email").innerHTML = "";
@@ -123,6 +133,28 @@
         if(password == "") 
         {
         	document.getElementById("password").innerHTML = "required";
+            $valid = false;
+        }
+        return $valid;
+    }
+    </script> -->
+
+    <script>
+    function validate() {
+        var $valid = true;
+        document.getElementById("user_info").innerHTML = "";
+        document.getElementById("password_info").innerHTML = "";
+        
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if(userName == "") 
+        {
+            document.getElementById("user_info").innerHTML = "required";
+        	$valid = false;
+        }
+        if(password == "") 
+        {
+        	document.getElementById("password_info").innerHTML = "required";
             $valid = false;
         }
         return $valid;
